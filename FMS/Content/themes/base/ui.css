@@ -1,0 +1,211 @@
+﻿ /*@import "jquery-ui-1.9.0.redmond.min.css";*/
+/*@import "jquery-ui-1.9.0.humanity.min.css";*/
+/* @import "jquery-ui-1.9.0.lightness.min.css"; */
+/* @import "jquery-ui-1.9.0.peppergrinder.min.css"; */
+@import "jquery-ui-1.9.0.blitzer.min.css";
+/* @import "jquery-ui-1.9.0.lefrog.min.css"; */
+/* @import "jquery-ui-1.9.0.dotluv.min.css"; */
+/* @import "jquery-ui-1.9.0.sunny.min.css"; */
+/* @import "jquery-ui-1.9.0.start.min.css"; */
+
+
+
+body
+{
+    font:13px/1.231 arial,helvetica,clean,sans-serif;
+}
+
+.actionContent
+{
+    background: none repeat scroll 0 0 white;
+    border: 1px solid gray;
+    border-radius: 4px 4px 4px 4px;
+    height: auto;
+    line-height: 30px;
+    padding: 4px;
+    position: absolute;
+    z-index: 2;
+}
+
+.ui-icon-details
+{
+    background-position: -32px -96px;
+}
+
+.ui-icon-print
+{
+    background-position: -161px -96px;
+}
+
+.formFieldDiv
+{
+    float: left;
+    margin-right: 10px;
+    min-width: 420px;
+    text-align: left;
+    position:relative;
+}
+
+.display-field, .editor-field
+{
+   
+    line-height:23px;
+    margin:0.5em,0;
+    min-height: 19px;
+  
+}
+
+.formFieldDiv .display-field, .formFieldDiv .editor-field
+{
+    display:inline-block;
+     width:200px;
+}
+
+
+.editor-label, .display-label
+{
+    border:none;
+    float:left;
+    line-height: 23px;
+    margin: 5px 3px -1px 0;
+    padding: 0 0 0 12px;
+   width: 200px;
+    border-bottom:1px solid #E8EEF4;
+}
+
+.formFieldDiv .editor-label, .formFieldDiv .display-label
+{
+   display:inline-block;
+    
+}
+
+.Login-editor-label
+{
+    background:none;
+    border:none;
+    padding:0px;
+}
+.ui-icon-list{
+    background-position: -65px -96px;
+}
+
+input.ui-button, .ui-button
+{
+    margin: 0.3em 0;
+    font-size:1em;
+}
+
+legend
+{
+    line-height: 1.5em;
+    padding: 0 0.5em;
+    font-size: 11px;
+}
+
+#dynamicMenu
+{
+    
+}
+
+.menuContainer, .mainContent
+{
+    background:url("images/navBG.png") repeat-x scroll 0 0 white;
+    position:relative;
+}
+
+.loadingImg
+{
+   
+    position:absolute;
+    left:40%;
+    top:40%;
+}
+
+/*.actionTitle
+{
+    display: block;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: -4px;
+    padding: 5px 10px;
+    position: relative;
+    text-transform: capitalize;
+    top: -11px;
+}*/
+
+.moduleTitle
+{
+    font-weight: bold;
+    text-align: center;
+    text-transform: capitalize;
+    line-height:2em;
+}
+
+.slider
+{
+   height: 16px;
+    margin-top: 25px;
+    width: 13px; 
+    background-position: -115px -81px;
+}
+
+.sliderContainer
+{
+    height: 45px;
+    position: absolute;
+    z-index: 3;
+    margin-left: -1px;
+}
+
+.clearFix
+{
+    clear:both;
+    content:"";
+    line-height:0px;
+    height:0px;
+}
+
+.ui-autocomplete .ui-menu-item
+{
+    font-family: arial;
+    font-size: 0.8em;
+    text-align: left;
+}
+.commonActions
+{
+    position:absolute;
+    right:21px;
+    top:0px;
+}
+    
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+
+.ui-timepicker-rtl{ direction: rtl; }
+.ui-timepicker-rtl dl { text-align: right; }
+.ui-timepicker-rtl dl dd { margin: 0 65px 10px 10px; }
+
+.formFieldDiv .autoWidth
+{
+    width:auto;
+}
+
+.myGridTitle
+{
+    padding:0.9em;
+}
+
+.myGridTable th, .myGridTable td
+{
+    padding:0.95em;
+}
+
+.width100
+{
+    width:100%;
+}

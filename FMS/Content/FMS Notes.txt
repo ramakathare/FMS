@@ -1,0 +1,153 @@
+Administrator 	Admin 	Admin@1234 	Administrator
+Cashier 	User 	User@123 	User 
+
+###### Export dues batchwise that includes sem wise dues list... sor the same by htNo
+
+###### payfeerequired response is working same for edit payfee and create payfee.. edit should not consider the  current payfee id being update while generating total amount paid...trying edit a payment
+
+struc deptexists in deptcontroller
+
+rewrite ajaxLoad function to display any internal server error messages
+
+Look for all action in all controllers and create in permissions
+
+handle server errors... or check for duplicate entries in caste and other tables...
+
+back button after logoff is not clearing cookies 
+
+in all the form check to display dependent fields to avoid duplicate entries.. for ex. set fee can't be created twice, instead it should be allowed to edit the previous entry. Also, check for duplicate entries after submitting create form in all modules
+
+Add [Secure] after the project is completed
+
+Check session expiration thoroughly, later
+
+Fee cannot be set to the academic year where students batch > acayear
+
+In all controller where tables are called as db.tablename.Where... make sure that that the order of conditions are as per the order of the columns in the original table.. example acayear should be called before feetype
+
+Is activ. List all fee details. In set fees index list all students first, sub grid shows set fee details. Separate Master details. Fee details pay details concession details in one menu. Add list payments. Generate dues list. Use get row data.
+
+Review commonFunction and addClass 'actionTitle' manually
+
+check all widths un all jqgrid
+
+Check minifications of js
+
+Check how to lazy load js and css files
+
+foreach database add, edit or delte operation check if the record existance to be verified
+
+While adding validation to models check all min and max values and accordingly verify inputs in all actions where modelstate.isvalid is not used
+
+remove automatics creation of permissions while creating rolemodule and rolemoduleactions
+
+use linq to sql queries whereever possible to boost speed
+
+try to avoid and asQueriable as much as possible to boost speed check every EF statment and try to inser linq to sql query..
+
+add Receipt No to payfee list
+
+update dept controller and views to add College id
+
+Format Date String in receipt
+
+check on how to take distinct rows before performing all the select operations (mainly while querying setfee results, because a single studentid may have many types of fees set)
+
+Go through all the controller actions and add try catch whereever necessary
+
+try to Generate total amount at each grid
+
+Check all the titles and legends or all the text hard coded in entires view if they are relavent
+
+try multiselect of feetype in export payments 
+
+add red color * symbol for required fields.. so that user can cumpolsorily select one of the values from autocomplete where
+
+Give proper names to all the excel files that are being exported
+
+check if concession amount is valid is allowed like payfeerequiredresponse
+
+Check all metadata if compatiable with all the database entities.. for validations (MEtaDataForModels vs FeeEFDBCOntextModels)
+
+Check validity of create or edit form in each module
+
+Check validation of each statements to see if there could be any chance of exception to rise
+
+Details of cheque or dd is to be added the project
+
+What about curracayear?
+
+how to tackle a situation where concession is alloted once -> due is paid & No installments left -> concession is deleted. Now there are no installments left and due is not cleared....
+
+Do not give permissions to delete concession or edit concession (Need to code some logic about it)
+
+check how to handle delete concession and edit concession
+
+Check with adding role module action permissions. After selecting rolemodule rolemodule actions are not displayed
+
+Numbering and total in excel exports
+
+unable to edit payfee if the due is cleared.. rises modelstate error that no due exists. To recreate the issue clear a students due and again try to edit it
+
+Grid for RoleModule and RoluModuleActions List are not working properly. refresh button is beneath pager arrow. Page navigation column buttons has come to the left.
+
+make list of concessions look like list of payments (form)
+
+add choose plugin to list of concession, list of dues, export dues semwise and batchwise
+
+see that students batchid changes when he detains or readmits...
+
+extend multiselect to as many fields as possible in all aspx pages where ever possible (example Caste, Semester, Dept..)
+
+See if there is a way to carrie previous setfee to this year
+
+2011 setfees and payments are not necessary
+
+Add Scholarship Module. Student reserve fund, special fee, tuition fee, hostel fee
+
+Make semwise to year wise
+
+Single login status
+
+Bulk pay fee unable to sort
+
+Setfees hallticket autocomplete change it to 3 character.. check the same in all forms
+
+Change semester list togrid and display no. of students present too.
+
+when adding roles, rolemodules and rolemoduleactions the permissions are by default added as true to roleid with '1' and false to other roles. So the Super admin id must be always 1. Try to change the logic so that the id of the superadmin is not hardcoded. Or add all the permissions as false to all the roles.
+
+
+after refining multiselect add multiselect to dues and export duessemwise
+check setfee with multiselect quota
+
+Add remarks to students about fee
+
+see that filtering of form using some fields like caste  to be implemented using multiselct(choosen). So that "contains" query can be eliminated. Also identify similar fields where multiselect can be implemented
+
+Backup database at local and server
+
+
+Advance payments
+
+check if there are any students without fee exemption in MPharmacy, BPharmacy since these setfee are already done
+
+Hard codes : SuperAdmin id in users table must be 1
+
+PaymentTypes : cash should be entered first
+
+MetaData is not added for all tables
+
+new controllers added to addpermissions, secure or only authorize tags-> reimbursementstatu, reimbursement
+
+Wherever there is name split it with ' ' and rerun the linq method so that it doesn't matters if first name or lastname is give first
+
+in every create form add abutton submit and create another
+
+set autocomplete method for fields like hallticket number whereever possible in all create and edit forms
+
+it will be more attractive if all simple forms like create, edit, delete, details should be loaded as popups
+
+Orderby not working in reimbursent/bulkrembursementToGrid check it later
+
+use db.tableName.Any(expression) whereever possible.. important

@@ -1,0 +1,1642 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="fmsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="acayears">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="year" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="batches">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="castes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cheques">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="payFeeid" Type="int" Nullable="false" />
+          <Property Name="bankName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="bankAddress" Type="nvarchar" MaxLength="255" />
+          <Property Name="chequenumber" Type="int" Nullable="false" />
+          <Property Name="dated" Type="datetime" Nullable="false" />
+          <Property Name="status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="colleges">
+          <Key>
+            <PropertyRef Name="collegeid" />
+          </Key>
+          <Property Name="collegeid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="collegeCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="collegeName" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="concessions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="amount" Type="int" Nullable="false" />
+          <Property Name="remarks" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="time" Type="datetime" Nullable="false" />
+          <Property Name="studentid" Type="int" Nullable="false" />
+          <Property Name="acaYearid" Type="int" Nullable="false" />
+          <Property Name="feeTypeid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="curracayears">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="currAcaYearid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="depts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="desc" Type="nvarchar" MaxLength="255" />
+          <Property Name="duration" Type="smallint" Nullable="false" />
+          <Property Name="collegeid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="feetypes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="allowedInstallments" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="payfees">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="studentid" Type="int" Nullable="false" />
+          <Property Name="feeTypeid" Type="int" Nullable="false" />
+          <Property Name="acaYearid" Type="int" Nullable="false" />
+          <Property Name="amount" Type="int" Nullable="false" />
+          <Property Name="recieptNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="time" Type="datetime" Nullable="false" />
+          <Property Name="paymentTypeid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="paymenttypes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="type" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="quotas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="desc" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="reimbursements">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="studentid" Type="int" Nullable="false" />
+          <Property Name="acaYearid" Type="int" Nullable="false" />
+          <Property Name="epassid" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="date" Type="datetime" Nullable="false" />
+          <Property Name="remarks" Type="nvarchar" MaxLength="255" />
+          <Property Name="approved" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rolemoduleactionpermissions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="roleid" Type="int" Nullable="false" />
+          <Property Name="rolemoduleactionid" Type="int" Nullable="false" />
+          <Property Name="permission" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rolemoduleactions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rolemoduleid" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="displayname" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rolemodulepermissions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="roleid" Type="int" Nullable="false" />
+          <Property Name="rolemoduleid" Type="int" Nullable="false" />
+          <Property Name="permission" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rolemodules">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="displayname" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="roles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="roleName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sems">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="deptid" Type="int" Nullable="false" />
+          <Property Name="desc" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="setfees">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="studentid" Type="int" Nullable="false" />
+          <Property Name="feeTypeid" Type="int" Nullable="false" />
+          <Property Name="acaYearid" Type="int" Nullable="false" />
+          <Property Name="amount" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="students">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="htno" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="fname" Type="nvarchar" MaxLength="50" />
+          <Property Name="casteid" Type="int" Nullable="false" />
+          <Property Name="quotaid" Type="int" Nullable="false" />
+          <Property Name="batchid" Type="int" Nullable="false" />
+          <Property Name="deptid" Type="int" Nullable="false" />
+          <Property Name="semid" Type="int" Nullable="false" />
+          <Property Name="feeExemption" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="roleid" Type="int" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_currAcaYear1">
+          <End Role="acayears" Type="Self.acayears" Multiplicity="1" />
+          <End Role="curracayears" Type="Self.curracayears" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="acayears">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="curracayears">
+              <PropertyRef Name="currAcaYearid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_caste">
+          <End Role="castes" Type="Self.castes" Multiplicity="1" />
+          <End Role="students" Type="Self.students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="castes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="students">
+              <PropertyRef Name="casteid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_collegeid">
+          <End Role="colleges" Type="Self.colleges" Multiplicity="1" />
+          <End Role="depts" Type="Self.depts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="colleges">
+              <PropertyRef Name="collegeid" />
+            </Principal>
+            <Dependent Role="depts">
+              <PropertyRef Name="collegeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_dept">
+          <End Role="depts" Type="Self.depts" Multiplicity="1" />
+          <End Role="students" Type="Self.students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="depts">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="students">
+              <PropertyRef Name="deptid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_deptid">
+          <End Role="depts" Type="Self.depts" Multiplicity="1" />
+          <End Role="sems" Type="Self.sems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="depts">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sems">
+              <PropertyRef Name="deptid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_feetype">
+          <End Role="feetypes" Type="Self.feetypes" Multiplicity="1" />
+          <End Role="concessions" Type="Self.concessions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="feetypes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="concessions">
+              <PropertyRef Name="feeTypeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_feeType0">
+          <End Role="feetypes" Type="Self.feetypes" Multiplicity="1" />
+          <End Role="payfees" Type="Self.payfees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="feetypes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="payfees">
+              <PropertyRef Name="feeTypeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_feeType1">
+          <End Role="feetypes" Type="Self.feetypes" Multiplicity="1" />
+          <End Role="setfees" Type="Self.setfees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="feetypes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="setfees">
+              <PropertyRef Name="feeTypeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_payfee">
+          <End Role="payfees" Type="Self.payfees" Multiplicity="1" />
+          <End Role="cheques" Type="Self.cheques" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="payfees">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="cheques">
+              <PropertyRef Name="payFeeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_paymentType">
+          <End Role="paymenttypes" Type="Self.paymenttypes" Multiplicity="1" />
+          <End Role="payfees" Type="Self.payfees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="paymenttypes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="payfees">
+              <PropertyRef Name="paymentTypeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_quota">
+          <End Role="quotas" Type="Self.quotas" Multiplicity="1" />
+          <End Role="students" Type="Self.students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="quotas">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="students">
+              <PropertyRef Name="quotaid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_role">
+          <End Role="roles" Type="Self.roles" Multiplicity="1" />
+          <End Role="users" Type="Self.users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="roles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="users">
+              <PropertyRef Name="roleid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_role1">
+          <End Role="roles" Type="Self.roles" Multiplicity="1" />
+          <End Role="rolemodulepermissions" Type="Self.rolemodulepermissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="roles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="rolemodulepermissions">
+              <PropertyRef Name="roleid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_role2">
+          <End Role="roles" Type="Self.roles" Multiplicity="1" />
+          <End Role="rolemoduleactionpermissions" Type="Self.rolemoduleactionpermissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="roles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="rolemoduleactionpermissions">
+              <PropertyRef Name="roleid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_rolemodule">
+          <End Role="rolemodules" Type="Self.rolemodules" Multiplicity="1" />
+          <End Role="rolemoduleactions" Type="Self.rolemoduleactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rolemodules">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="rolemoduleactions">
+              <PropertyRef Name="rolemoduleid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_rolemodule1">
+          <End Role="rolemodules" Type="Self.rolemodules" Multiplicity="1" />
+          <End Role="rolemodulepermissions" Type="Self.rolemodulepermissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rolemodules">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="rolemodulepermissions">
+              <PropertyRef Name="rolemoduleid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_rolemoduleaction">
+          <End Role="rolemoduleactions" Type="Self.rolemoduleactions" Multiplicity="1" />
+          <End Role="rolemoduleactionpermissions" Type="Self.rolemoduleactionpermissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rolemoduleactions">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="rolemoduleactionpermissions">
+              <PropertyRef Name="rolemoduleactionid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_sem">
+          <End Role="sems" Type="Self.sems" Multiplicity="1" />
+          <End Role="students" Type="Self.students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sems">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="students">
+              <PropertyRef Name="semid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_student">
+          <End Role="students" Type="Self.students" Multiplicity="1" />
+          <End Role="concessions" Type="Self.concessions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="students">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="concessions">
+              <PropertyRef Name="studentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_student0">
+          <End Role="students" Type="Self.students" Multiplicity="1" />
+          <End Role="payfees" Type="Self.payfees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="students">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="payfees">
+              <PropertyRef Name="studentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr1_acaYear">
+          <End Role="acayears" Type="Self.acayears" Multiplicity="1" />
+          <End Role="setfees" Type="Self.setfees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="acayears">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="setfees">
+              <PropertyRef Name="acaYearid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr1_acaYear0">
+          <End Role="acayears" Type="Self.acayears" Multiplicity="1" />
+          <End Role="payfees" Type="Self.payfees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="acayears">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="payfees">
+              <PropertyRef Name="acaYearid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr1_acaYear1">
+          <End Role="acayears" Type="Self.acayears" Multiplicity="1" />
+          <End Role="reimbursements" Type="Self.reimbursements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="acayears">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="reimbursements">
+              <PropertyRef Name="acaYearid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr1_batch">
+          <End Role="batches" Type="Self.batches" Multiplicity="1" />
+          <End Role="students" Type="Self.students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="batches">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="students">
+              <PropertyRef Name="batchid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr1_student">
+          <End Role="students" Type="Self.students" Multiplicity="1" />
+          <End Role="setfees" Type="Self.setfees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="students">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="setfees">
+              <PropertyRef Name="studentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr1_student1">
+          <End Role="students" Type="Self.students" Multiplicity="1" />
+          <End Role="reimbursements" Type="Self.reimbursements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="students">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="reimbursements">
+              <PropertyRef Name="studentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr2_acayear">
+          <End Role="acayears" Type="Self.acayears" Multiplicity="1" />
+          <End Role="concessions" Type="Self.concessions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="acayears">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="concessions">
+              <PropertyRef Name="acaYearid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="fmsModelStoreContainer">
+          <EntitySet Name="acayears" EntityType="Self.acayears" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="batches" EntityType="Self.batches" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="castes" EntityType="Self.castes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cheques" EntityType="Self.cheques" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="colleges" EntityType="Self.colleges" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="concessions" EntityType="Self.concessions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="curracayears" EntityType="Self.curracayears" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="depts" EntityType="Self.depts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="feetypes" EntityType="Self.feetypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="payfees" EntityType="Self.payfees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="paymenttypes" EntityType="Self.paymenttypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="quotas" EntityType="Self.quotas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="reimbursements" EntityType="Self.reimbursements" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rolemoduleactionpermissions" EntityType="Self.rolemoduleactionpermissions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rolemoduleactions" EntityType="Self.rolemoduleactions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rolemodulepermissions" EntityType="Self.rolemodulepermissions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rolemodules" EntityType="Self.rolemodules" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="roles" EntityType="Self.roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sems" EntityType="Self.sems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="setfees" EntityType="Self.setfees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="students" EntityType="Self.students" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_currAcaYear1" Association="Self.FK_currAcaYear1">
+            <End Role="acayears" EntitySet="acayears" />
+            <End Role="curracayears" EntitySet="curracayears" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_caste" Association="Self.FK_fr_caste">
+            <End Role="castes" EntitySet="castes" />
+            <End Role="students" EntitySet="students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_collegeid" Association="Self.FK_fr_collegeid">
+            <End Role="colleges" EntitySet="colleges" />
+            <End Role="depts" EntitySet="depts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_dept" Association="Self.FK_fr_dept">
+            <End Role="depts" EntitySet="depts" />
+            <End Role="students" EntitySet="students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_deptid" Association="Self.FK_fr_deptid">
+            <End Role="depts" EntitySet="depts" />
+            <End Role="sems" EntitySet="sems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_feetype" Association="Self.FK_fr_feetype">
+            <End Role="feetypes" EntitySet="feetypes" />
+            <End Role="concessions" EntitySet="concessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_feeType0" Association="Self.FK_fr_feeType0">
+            <End Role="feetypes" EntitySet="feetypes" />
+            <End Role="payfees" EntitySet="payfees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_feeType1" Association="Self.FK_fr_feeType1">
+            <End Role="feetypes" EntitySet="feetypes" />
+            <End Role="setfees" EntitySet="setfees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_payfee" Association="Self.FK_fr_payfee">
+            <End Role="payfees" EntitySet="payfees" />
+            <End Role="cheques" EntitySet="cheques" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_paymentType" Association="Self.FK_fr_paymentType">
+            <End Role="paymenttypes" EntitySet="paymenttypes" />
+            <End Role="payfees" EntitySet="payfees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_quota" Association="Self.FK_fr_quota">
+            <End Role="quotas" EntitySet="quotas" />
+            <End Role="students" EntitySet="students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_role" Association="Self.FK_fr_role">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="users" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_role1" Association="Self.FK_fr_role1">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="rolemodulepermissions" EntitySet="rolemodulepermissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_role2" Association="Self.FK_fr_role2">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="rolemoduleactionpermissions" EntitySet="rolemoduleactionpermissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_rolemodule" Association="Self.FK_fr_rolemodule">
+            <End Role="rolemodules" EntitySet="rolemodules" />
+            <End Role="rolemoduleactions" EntitySet="rolemoduleactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_rolemodule1" Association="Self.FK_fr_rolemodule1">
+            <End Role="rolemodules" EntitySet="rolemodules" />
+            <End Role="rolemodulepermissions" EntitySet="rolemodulepermissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_rolemoduleaction" Association="Self.FK_fr_rolemoduleaction">
+            <End Role="rolemoduleactions" EntitySet="rolemoduleactions" />
+            <End Role="rolemoduleactionpermissions" EntitySet="rolemoduleactionpermissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_sem" Association="Self.FK_fr_sem">
+            <End Role="sems" EntitySet="sems" />
+            <End Role="students" EntitySet="students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_student" Association="Self.FK_fr_student">
+            <End Role="students" EntitySet="students" />
+            <End Role="concessions" EntitySet="concessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_student0" Association="Self.FK_fr_student0">
+            <End Role="students" EntitySet="students" />
+            <End Role="payfees" EntitySet="payfees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr1_acaYear" Association="Self.FK_fr1_acaYear">
+            <End Role="acayears" EntitySet="acayears" />
+            <End Role="setfees" EntitySet="setfees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr1_acaYear0" Association="Self.FK_fr1_acaYear0">
+            <End Role="acayears" EntitySet="acayears" />
+            <End Role="payfees" EntitySet="payfees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr1_acaYear1" Association="Self.FK_fr1_acaYear1">
+            <End Role="acayears" EntitySet="acayears" />
+            <End Role="reimbursements" EntitySet="reimbursements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr1_batch" Association="Self.FK_fr1_batch">
+            <End Role="batches" EntitySet="batches" />
+            <End Role="students" EntitySet="students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr1_student" Association="Self.FK_fr1_student">
+            <End Role="students" EntitySet="students" />
+            <End Role="setfees" EntitySet="setfees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr1_student1" Association="Self.FK_fr1_student1">
+            <End Role="students" EntitySet="students" />
+            <End Role="reimbursements" EntitySet="reimbursements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr2_acayear" Association="Self.FK_fr2_acayear">
+            <End Role="acayears" EntitySet="acayears" />
+            <End Role="concessions" EntitySet="concessions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="fmsModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityType Name="acayear">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="year" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="curracayears" Relationship="Self.FK_currAcaYear1" FromRole="acayears" ToRole="curracayears" />
+          <NavigationProperty Name="setfees" Relationship="Self.FK_fr1_acaYear" FromRole="acayears" ToRole="setfees" />
+          <NavigationProperty Name="payfees" Relationship="Self.FK_fr1_acaYear0" FromRole="acayears" ToRole="payfees" />
+          <NavigationProperty Name="reimbursements" Relationship="Self.FK_fr1_acaYear1" FromRole="acayears" ToRole="reimbursements" />
+          <NavigationProperty Name="concessions" Relationship="Self.FK_fr2_acayear" FromRole="acayears" ToRole="concessions" />
+        </EntityType>
+        <EntityType Name="batch">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="students" Relationship="Self.FK_fr1_batch" FromRole="batches" ToRole="students" />
+        </EntityType>
+        <EntityType Name="caste">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="students" Relationship="Self.FK_fr_caste" FromRole="castes" ToRole="students" />
+        </EntityType>
+        <EntityType Name="cheque">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="payFeeid" Type="Int32" Nullable="false" />
+          <Property Name="bankName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="bankAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="chequenumber" Type="Int32" Nullable="false" />
+          <Property Name="dated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="status" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="payfee" Relationship="Self.FK_fr_payfee" FromRole="cheques" ToRole="payfees" />
+        </EntityType>
+        <EntityType Name="college">
+          <Key>
+            <PropertyRef Name="collegeid" />
+          </Key>
+          <Property Name="collegeid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="collegeCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="collegeName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="depts" Relationship="Self.FK_fr_collegeid" FromRole="colleges" ToRole="depts" />
+        </EntityType>
+        <EntityType Name="concession">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="amount" Type="Int32" Nullable="false" />
+          <Property Name="remarks" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="studentid" Type="Int32" Nullable="false" />
+          <Property Name="acaYearid" Type="Int32" Nullable="false" />
+          <Property Name="feeTypeid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="acayear" Relationship="Self.FK_fr2_acayear" FromRole="concessions" ToRole="acayears" />
+          <NavigationProperty Name="feetype" Relationship="Self.FK_fr_feetype" FromRole="concessions" ToRole="feetypes" />
+          <NavigationProperty Name="student" Relationship="Self.FK_fr_student" FromRole="concessions" ToRole="students" />
+        </EntityType>
+        <EntityType Name="curracayear">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="currAcaYearid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="acayear" Relationship="Self.FK_currAcaYear1" FromRole="curracayears" ToRole="acayears" />
+        </EntityType>
+        <EntityType Name="dept">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="desc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="duration" Type="Int16" Nullable="false" />
+          <Property Name="collegeid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="college" Relationship="Self.FK_fr_collegeid" FromRole="depts" ToRole="colleges" />
+          <NavigationProperty Name="students" Relationship="Self.FK_fr_dept" FromRole="depts" ToRole="students" />
+          <NavigationProperty Name="sems" Relationship="Self.FK_fr_deptid" FromRole="depts" ToRole="sems" />
+        </EntityType>
+        <EntityType Name="feetype">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="allowedInstallments" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="concessions" Relationship="Self.FK_fr_feetype" FromRole="feetypes" ToRole="concessions" />
+          <NavigationProperty Name="payfees" Relationship="Self.FK_fr_feeType0" FromRole="feetypes" ToRole="payfees" />
+          <NavigationProperty Name="setfees" Relationship="Self.FK_fr_feeType1" FromRole="feetypes" ToRole="setfees" />
+        </EntityType>
+        <EntityType Name="payfee">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="studentid" Type="Int32" Nullable="false" />
+          <Property Name="feeTypeid" Type="Int32" Nullable="false" />
+          <Property Name="acaYearid" Type="Int32" Nullable="false" />
+          <Property Name="amount" Type="Int32" Nullable="false" />
+          <Property Name="recieptNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="paymentTypeid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="acayear" Relationship="Self.FK_fr1_acaYear0" FromRole="payfees" ToRole="acayears" />
+          <NavigationProperty Name="cheques" Relationship="Self.FK_fr_payfee" FromRole="payfees" ToRole="cheques" />
+          <NavigationProperty Name="feetype" Relationship="Self.FK_fr_feeType0" FromRole="payfees" ToRole="feetypes" />
+          <NavigationProperty Name="paymenttype" Relationship="Self.FK_fr_paymentType" FromRole="payfees" ToRole="paymenttypes" />
+          <NavigationProperty Name="student" Relationship="Self.FK_fr_student0" FromRole="payfees" ToRole="students" />
+        </EntityType>
+        <EntityType Name="paymenttype">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="payfees" Relationship="Self.FK_fr_paymentType" FromRole="paymenttypes" ToRole="payfees" />
+        </EntityType>
+        <EntityType Name="quota">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="desc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="students" Relationship="Self.FK_fr_quota" FromRole="quotas" ToRole="students" />
+        </EntityType>
+        <EntityType Name="reimbursement">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="studentid" Type="Int32" Nullable="false" />
+          <Property Name="acaYearid" Type="Int32" Nullable="false" />
+          <Property Name="epassid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="remarks" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="approved" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="acayear" Relationship="Self.FK_fr1_acaYear1" FromRole="reimbursements" ToRole="acayears" />
+          <NavigationProperty Name="student" Relationship="Self.FK_fr1_student1" FromRole="reimbursements" ToRole="students" />
+        </EntityType>
+        <EntityType Name="rolemoduleactionpermission">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="roleid" Type="Int32" Nullable="false" />
+          <Property Name="rolemoduleactionid" Type="Int32" Nullable="false" />
+          <Property Name="permission" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="role" Relationship="Self.FK_fr_role2" FromRole="rolemoduleactionpermissions" ToRole="roles" />
+          <NavigationProperty Name="rolemoduleaction" Relationship="Self.FK_fr_rolemoduleaction" FromRole="rolemoduleactionpermissions" ToRole="rolemoduleactions" />
+        </EntityType>
+        <EntityType Name="rolemoduleaction">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rolemoduleid" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="displayname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="rolemoduleactionpermissions" Relationship="Self.FK_fr_rolemoduleaction" FromRole="rolemoduleactions" ToRole="rolemoduleactionpermissions" />
+          <NavigationProperty Name="rolemodule" Relationship="Self.FK_fr_rolemodule" FromRole="rolemoduleactions" ToRole="rolemodules" />
+        </EntityType>
+        <EntityType Name="rolemodulepermission">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="roleid" Type="Int32" Nullable="false" />
+          <Property Name="rolemoduleid" Type="Int32" Nullable="false" />
+          <Property Name="permission" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="role" Relationship="Self.FK_fr_role1" FromRole="rolemodulepermissions" ToRole="roles" />
+          <NavigationProperty Name="rolemodule" Relationship="Self.FK_fr_rolemodule1" FromRole="rolemodulepermissions" ToRole="rolemodules" />
+        </EntityType>
+        <EntityType Name="rolemodule">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="displayname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="rolemoduleactions" Relationship="Self.FK_fr_rolemodule" FromRole="rolemodules" ToRole="rolemoduleactions" />
+          <NavigationProperty Name="rolemodulepermissions" Relationship="Self.FK_fr_rolemodule1" FromRole="rolemodules" ToRole="rolemodulepermissions" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="roleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="rolemoduleactionpermissions" Relationship="Self.FK_fr_role2" FromRole="roles" ToRole="rolemoduleactionpermissions" />
+          <NavigationProperty Name="rolemodulepermissions" Relationship="Self.FK_fr_role1" FromRole="roles" ToRole="rolemodulepermissions" />
+          <NavigationProperty Name="users" Relationship="Self.FK_fr_role" FromRole="roles" ToRole="users" />
+        </EntityType>
+        <EntityType Name="sem">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="deptid" Type="Int32" Nullable="false" />
+          <Property Name="desc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="dept" Relationship="Self.FK_fr_deptid" FromRole="sems" ToRole="depts" />
+          <NavigationProperty Name="students" Relationship="Self.FK_fr_sem" FromRole="sems" ToRole="students" />
+        </EntityType>
+        <EntityType Name="setfee">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="studentid" Type="Int32" Nullable="false" />
+          <Property Name="feeTypeid" Type="Int32" Nullable="false" />
+          <Property Name="acaYearid" Type="Int32" Nullable="false" />
+          <Property Name="amount" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="acayear" Relationship="Self.FK_fr1_acaYear" FromRole="setfees" ToRole="acayears" />
+          <NavigationProperty Name="feetype" Relationship="Self.FK_fr_feeType1" FromRole="setfees" ToRole="feetypes" />
+          <NavigationProperty Name="student" Relationship="Self.FK_fr1_student" FromRole="setfees" ToRole="students" />
+        </EntityType>
+        <EntityType Name="student">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="htno" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="casteid" Type="Int32" Nullable="false" />
+          <Property Name="quotaid" Type="Int32" Nullable="false" />
+          <Property Name="batchid" Type="Int32" Nullable="false" />
+          <Property Name="deptid" Type="Int32" Nullable="false" />
+          <Property Name="semid" Type="Int32" Nullable="false" />
+          <Property Name="feeExemption" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="batch" Relationship="Self.FK_fr1_batch" FromRole="students" ToRole="batches" />
+          <NavigationProperty Name="caste" Relationship="Self.FK_fr_caste" FromRole="students" ToRole="castes" />
+          <NavigationProperty Name="concessions" Relationship="Self.FK_fr_student" FromRole="students" ToRole="concessions" />
+          <NavigationProperty Name="dept" Relationship="Self.FK_fr_dept" FromRole="students" ToRole="depts" />
+          <NavigationProperty Name="payfees" Relationship="Self.FK_fr_student0" FromRole="students" ToRole="payfees" />
+          <NavigationProperty Name="quota" Relationship="Self.FK_fr_quota" FromRole="students" ToRole="quotas" />
+          <NavigationProperty Name="reimbursements" Relationship="Self.FK_fr1_student1" FromRole="students" ToRole="reimbursements" />
+          <NavigationProperty Name="sem" Relationship="Self.FK_fr_sem" FromRole="students" ToRole="sems" />
+          <NavigationProperty Name="setfees" Relationship="Self.FK_fr1_student" FromRole="students" ToRole="setfees" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="roleid" Type="Int32" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="role" Relationship="Self.FK_fr_role" FromRole="users" ToRole="roles" />
+        </EntityType>
+        <Association Name="FK_currAcaYear1">
+          <End Role="acayears" Type="Self.acayear" Multiplicity="1" />
+          <End Role="curracayears" Type="Self.curracayear" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="acayears">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="curracayears">
+              <PropertyRef Name="currAcaYearid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr1_acaYear">
+          <End Role="acayears" Type="Self.acayear" Multiplicity="1" />
+          <End Role="setfees" Type="Self.setfee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="acayears">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="setfees">
+              <PropertyRef Name="acaYearid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr1_acaYear0">
+          <End Role="acayears" Type="Self.acayear" Multiplicity="1" />
+          <End Role="payfees" Type="Self.payfee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="acayears">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="payfees">
+              <PropertyRef Name="acaYearid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr1_acaYear1">
+          <End Role="acayears" Type="Self.acayear" Multiplicity="1" />
+          <End Role="reimbursements" Type="Self.reimbursement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="acayears">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="reimbursements">
+              <PropertyRef Name="acaYearid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr2_acayear">
+          <End Role="acayears" Type="Self.acayear" Multiplicity="1" />
+          <End Role="concessions" Type="Self.concession" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="acayears">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="concessions">
+              <PropertyRef Name="acaYearid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr1_batch">
+          <End Role="batches" Type="Self.batch" Multiplicity="1" />
+          <End Role="students" Type="Self.student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="batches">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="students">
+              <PropertyRef Name="batchid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_caste">
+          <End Role="castes" Type="Self.caste" Multiplicity="1" />
+          <End Role="students" Type="Self.student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="castes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="students">
+              <PropertyRef Name="casteid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_payfee">
+          <End Role="payfees" Type="Self.payfee" Multiplicity="1" />
+          <End Role="cheques" Type="Self.cheque" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="payfees">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="cheques">
+              <PropertyRef Name="payFeeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_collegeid">
+          <End Role="colleges" Type="Self.college" Multiplicity="1" />
+          <End Role="depts" Type="Self.dept" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="colleges">
+              <PropertyRef Name="collegeid" />
+            </Principal>
+            <Dependent Role="depts">
+              <PropertyRef Name="collegeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_feetype">
+          <End Role="feetypes" Type="Self.feetype" Multiplicity="1" />
+          <End Role="concessions" Type="Self.concession" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="feetypes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="concessions">
+              <PropertyRef Name="feeTypeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_student">
+          <End Role="students" Type="Self.student" Multiplicity="1" />
+          <End Role="concessions" Type="Self.concession" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="students">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="concessions">
+              <PropertyRef Name="studentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_dept">
+          <End Role="depts" Type="Self.dept" Multiplicity="1" />
+          <End Role="students" Type="Self.student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="depts">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="students">
+              <PropertyRef Name="deptid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_deptid">
+          <End Role="depts" Type="Self.dept" Multiplicity="1" />
+          <End Role="sems" Type="Self.sem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="depts">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sems">
+              <PropertyRef Name="deptid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_feeType0">
+          <End Role="feetypes" Type="Self.feetype" Multiplicity="1" />
+          <End Role="payfees" Type="Self.payfee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="feetypes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="payfees">
+              <PropertyRef Name="feeTypeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_feeType1">
+          <End Role="feetypes" Type="Self.feetype" Multiplicity="1" />
+          <End Role="setfees" Type="Self.setfee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="feetypes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="setfees">
+              <PropertyRef Name="feeTypeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_paymentType">
+          <End Role="paymenttypes" Type="Self.paymenttype" Multiplicity="1" />
+          <End Role="payfees" Type="Self.payfee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="paymenttypes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="payfees">
+              <PropertyRef Name="paymentTypeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_student0">
+          <End Role="students" Type="Self.student" Multiplicity="1" />
+          <End Role="payfees" Type="Self.payfee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="students">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="payfees">
+              <PropertyRef Name="studentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_quota">
+          <End Role="quotas" Type="Self.quota" Multiplicity="1" />
+          <End Role="students" Type="Self.student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="quotas">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="students">
+              <PropertyRef Name="quotaid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr1_student1">
+          <End Role="students" Type="Self.student" Multiplicity="1" />
+          <End Role="reimbursements" Type="Self.reimbursement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="students">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="reimbursements">
+              <PropertyRef Name="studentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_role2">
+          <End Role="roles" Type="Self.role" Multiplicity="1" />
+          <End Role="rolemoduleactionpermissions" Type="Self.rolemoduleactionpermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="roles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="rolemoduleactionpermissions">
+              <PropertyRef Name="roleid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_rolemoduleaction">
+          <End Role="rolemoduleactions" Type="Self.rolemoduleaction" Multiplicity="1" />
+          <End Role="rolemoduleactionpermissions" Type="Self.rolemoduleactionpermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rolemoduleactions">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="rolemoduleactionpermissions">
+              <PropertyRef Name="rolemoduleactionid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_rolemodule">
+          <End Role="rolemodules" Type="Self.rolemodule" Multiplicity="1" />
+          <End Role="rolemoduleactions" Type="Self.rolemoduleaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rolemodules">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="rolemoduleactions">
+              <PropertyRef Name="rolemoduleid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_role1">
+          <End Role="roles" Type="Self.role" Multiplicity="1" />
+          <End Role="rolemodulepermissions" Type="Self.rolemodulepermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="roles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="rolemodulepermissions">
+              <PropertyRef Name="roleid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_rolemodule1">
+          <End Role="rolemodules" Type="Self.rolemodule" Multiplicity="1" />
+          <End Role="rolemodulepermissions" Type="Self.rolemodulepermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rolemodules">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="rolemodulepermissions">
+              <PropertyRef Name="rolemoduleid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_role">
+          <End Role="roles" Type="Self.role" Multiplicity="1" />
+          <End Role="users" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="roles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="users">
+              <PropertyRef Name="roleid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr_sem">
+          <End Role="sems" Type="Self.sem" Multiplicity="1" />
+          <End Role="students" Type="Self.student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sems">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="students">
+              <PropertyRef Name="semid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fr1_student">
+          <End Role="students" Type="Self.student" Multiplicity="1" />
+          <End Role="setfees" Type="Self.setfee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="students">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="setfees">
+              <PropertyRef Name="studentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="feeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="acayears" EntityType="Self.acayear" />
+          <EntitySet Name="batches" EntityType="Self.batch" />
+          <EntitySet Name="castes" EntityType="Self.caste" />
+          <EntitySet Name="cheques" EntityType="Self.cheque" />
+          <EntitySet Name="colleges" EntityType="Self.college" />
+          <EntitySet Name="concessions" EntityType="Self.concession" />
+          <EntitySet Name="curracayears" EntityType="Self.curracayear" />
+          <EntitySet Name="depts" EntityType="Self.dept" />
+          <EntitySet Name="feetypes" EntityType="Self.feetype" />
+          <EntitySet Name="payfees" EntityType="Self.payfee" />
+          <EntitySet Name="paymenttypes" EntityType="Self.paymenttype" />
+          <EntitySet Name="quotas" EntityType="Self.quota" />
+          <EntitySet Name="reimbursements" EntityType="Self.reimbursement" />
+          <EntitySet Name="rolemoduleactionpermissions" EntityType="Self.rolemoduleactionpermission" />
+          <EntitySet Name="rolemoduleactions" EntityType="Self.rolemoduleaction" />
+          <EntitySet Name="rolemodulepermissions" EntityType="Self.rolemodulepermission" />
+          <EntitySet Name="rolemodules" EntityType="Self.rolemodule" />
+          <EntitySet Name="roles" EntityType="Self.role" />
+          <EntitySet Name="sems" EntityType="Self.sem" />
+          <EntitySet Name="setfees" EntityType="Self.setfee" />
+          <EntitySet Name="students" EntityType="Self.student" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <AssociationSet Name="FK_currAcaYear1" Association="Self.FK_currAcaYear1">
+            <End Role="acayears" EntitySet="acayears" />
+            <End Role="curracayears" EntitySet="curracayears" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr1_acaYear" Association="Self.FK_fr1_acaYear">
+            <End Role="acayears" EntitySet="acayears" />
+            <End Role="setfees" EntitySet="setfees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr1_acaYear0" Association="Self.FK_fr1_acaYear0">
+            <End Role="acayears" EntitySet="acayears" />
+            <End Role="payfees" EntitySet="payfees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr1_acaYear1" Association="Self.FK_fr1_acaYear1">
+            <End Role="acayears" EntitySet="acayears" />
+            <End Role="reimbursements" EntitySet="reimbursements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr2_acayear" Association="Self.FK_fr2_acayear">
+            <End Role="acayears" EntitySet="acayears" />
+            <End Role="concessions" EntitySet="concessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr1_batch" Association="Self.FK_fr1_batch">
+            <End Role="batches" EntitySet="batches" />
+            <End Role="students" EntitySet="students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_caste" Association="Self.FK_fr_caste">
+            <End Role="castes" EntitySet="castes" />
+            <End Role="students" EntitySet="students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_payfee" Association="Self.FK_fr_payfee">
+            <End Role="payfees" EntitySet="payfees" />
+            <End Role="cheques" EntitySet="cheques" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_collegeid" Association="Self.FK_fr_collegeid">
+            <End Role="colleges" EntitySet="colleges" />
+            <End Role="depts" EntitySet="depts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_feetype" Association="Self.FK_fr_feetype">
+            <End Role="feetypes" EntitySet="feetypes" />
+            <End Role="concessions" EntitySet="concessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_student" Association="Self.FK_fr_student">
+            <End Role="students" EntitySet="students" />
+            <End Role="concessions" EntitySet="concessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_dept" Association="Self.FK_fr_dept">
+            <End Role="depts" EntitySet="depts" />
+            <End Role="students" EntitySet="students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_deptid" Association="Self.FK_fr_deptid">
+            <End Role="depts" EntitySet="depts" />
+            <End Role="sems" EntitySet="sems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_feeType0" Association="Self.FK_fr_feeType0">
+            <End Role="feetypes" EntitySet="feetypes" />
+            <End Role="payfees" EntitySet="payfees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_feeType1" Association="Self.FK_fr_feeType1">
+            <End Role="feetypes" EntitySet="feetypes" />
+            <End Role="setfees" EntitySet="setfees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_paymentType" Association="Self.FK_fr_paymentType">
+            <End Role="paymenttypes" EntitySet="paymenttypes" />
+            <End Role="payfees" EntitySet="payfees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_student0" Association="Self.FK_fr_student0">
+            <End Role="students" EntitySet="students" />
+            <End Role="payfees" EntitySet="payfees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_quota" Association="Self.FK_fr_quota">
+            <End Role="quotas" EntitySet="quotas" />
+            <End Role="students" EntitySet="students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr1_student1" Association="Self.FK_fr1_student1">
+            <End Role="students" EntitySet="students" />
+            <End Role="reimbursements" EntitySet="reimbursements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_role2" Association="Self.FK_fr_role2">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="rolemoduleactionpermissions" EntitySet="rolemoduleactionpermissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_rolemoduleaction" Association="Self.FK_fr_rolemoduleaction">
+            <End Role="rolemoduleactions" EntitySet="rolemoduleactions" />
+            <End Role="rolemoduleactionpermissions" EntitySet="rolemoduleactionpermissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_rolemodule" Association="Self.FK_fr_rolemodule">
+            <End Role="rolemodules" EntitySet="rolemodules" />
+            <End Role="rolemoduleactions" EntitySet="rolemoduleactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_role1" Association="Self.FK_fr_role1">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="rolemodulepermissions" EntitySet="rolemodulepermissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_rolemodule1" Association="Self.FK_fr_rolemodule1">
+            <End Role="rolemodules" EntitySet="rolemodules" />
+            <End Role="rolemodulepermissions" EntitySet="rolemodulepermissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_role" Association="Self.FK_fr_role">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="users" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr_sem" Association="Self.FK_fr_sem">
+            <End Role="sems" EntitySet="sems" />
+            <End Role="students" EntitySet="students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fr1_student" Association="Self.FK_fr1_student">
+            <End Role="students" EntitySet="students" />
+            <End Role="setfees" EntitySet="setfees" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="fmsModelStoreContainer" CdmEntityContainer="feeEntities">
+          <EntitySetMapping Name="acayears">
+            <EntityTypeMapping TypeName="fmsModel.acayear">
+              <MappingFragment StoreEntitySet="acayears">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="year" ColumnName="year" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="batches">
+            <EntityTypeMapping TypeName="fmsModel.batch">
+              <MappingFragment StoreEntitySet="batches">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="castes">
+            <EntityTypeMapping TypeName="fmsModel.caste">
+              <MappingFragment StoreEntitySet="castes">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cheques">
+            <EntityTypeMapping TypeName="fmsModel.cheque">
+              <MappingFragment StoreEntitySet="cheques">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="payFeeid" ColumnName="payFeeid" />
+                <ScalarProperty Name="bankName" ColumnName="bankName" />
+                <ScalarProperty Name="bankAddress" ColumnName="bankAddress" />
+                <ScalarProperty Name="chequenumber" ColumnName="chequenumber" />
+                <ScalarProperty Name="dated" ColumnName="dated" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="colleges">
+            <EntityTypeMapping TypeName="fmsModel.college">
+              <MappingFragment StoreEntitySet="colleges">
+                <ScalarProperty Name="collegeid" ColumnName="collegeid" />
+                <ScalarProperty Name="collegeCode" ColumnName="collegeCode" />
+                <ScalarProperty Name="collegeName" ColumnName="collegeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="concessions">
+            <EntityTypeMapping TypeName="fmsModel.concession">
+              <MappingFragment StoreEntitySet="concessions">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="studentid" ColumnName="studentid" />
+                <ScalarProperty Name="acaYearid" ColumnName="acaYearid" />
+                <ScalarProperty Name="feeTypeid" ColumnName="feeTypeid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="curracayears">
+            <EntityTypeMapping TypeName="fmsModel.curracayear">
+              <MappingFragment StoreEntitySet="curracayears">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="currAcaYearid" ColumnName="currAcaYearid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="depts">
+            <EntityTypeMapping TypeName="fmsModel.dept">
+              <MappingFragment StoreEntitySet="depts">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="desc" ColumnName="desc" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="collegeid" ColumnName="collegeid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="feetypes">
+            <EntityTypeMapping TypeName="fmsModel.feetype">
+              <MappingFragment StoreEntitySet="feetypes">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="allowedInstallments" ColumnName="allowedInstallments" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="payfees">
+            <EntityTypeMapping TypeName="fmsModel.payfee">
+              <MappingFragment StoreEntitySet="payfees">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="studentid" ColumnName="studentid" />
+                <ScalarProperty Name="feeTypeid" ColumnName="feeTypeid" />
+                <ScalarProperty Name="acaYearid" ColumnName="acaYearid" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="recieptNo" ColumnName="recieptNo" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="paymentTypeid" ColumnName="paymentTypeid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="paymenttypes">
+            <EntityTypeMapping TypeName="fmsModel.paymenttype">
+              <MappingFragment StoreEntitySet="paymenttypes">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="quotas">
+            <EntityTypeMapping TypeName="fmsModel.quota">
+              <MappingFragment StoreEntitySet="quotas">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="desc" ColumnName="desc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reimbursements">
+            <EntityTypeMapping TypeName="fmsModel.reimbursement">
+              <MappingFragment StoreEntitySet="reimbursements">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="studentid" ColumnName="studentid" />
+                <ScalarProperty Name="acaYearid" ColumnName="acaYearid" />
+                <ScalarProperty Name="epassid" ColumnName="epassid" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="approved" ColumnName="approved" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rolemoduleactionpermissions">
+            <EntityTypeMapping TypeName="fmsModel.rolemoduleactionpermission">
+              <MappingFragment StoreEntitySet="rolemoduleactionpermissions">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="roleid" ColumnName="roleid" />
+                <ScalarProperty Name="rolemoduleactionid" ColumnName="rolemoduleactionid" />
+                <ScalarProperty Name="permission" ColumnName="permission" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rolemoduleactions">
+            <EntityTypeMapping TypeName="fmsModel.rolemoduleaction">
+              <MappingFragment StoreEntitySet="rolemoduleactions">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="rolemoduleid" ColumnName="rolemoduleid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="displayname" ColumnName="displayname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rolemodulepermissions">
+            <EntityTypeMapping TypeName="fmsModel.rolemodulepermission">
+              <MappingFragment StoreEntitySet="rolemodulepermissions">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="roleid" ColumnName="roleid" />
+                <ScalarProperty Name="rolemoduleid" ColumnName="rolemoduleid" />
+                <ScalarProperty Name="permission" ColumnName="permission" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rolemodules">
+            <EntityTypeMapping TypeName="fmsModel.rolemodule">
+              <MappingFragment StoreEntitySet="rolemodules">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="displayname" ColumnName="displayname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="roles">
+            <EntityTypeMapping TypeName="fmsModel.role">
+              <MappingFragment StoreEntitySet="roles">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="roleName" ColumnName="roleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sems">
+            <EntityTypeMapping TypeName="fmsModel.sem">
+              <MappingFragment StoreEntitySet="sems">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="deptid" ColumnName="deptid" />
+                <ScalarProperty Name="desc" ColumnName="desc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="setfees">
+            <EntityTypeMapping TypeName="fmsModel.setfee">
+              <MappingFragment StoreEntitySet="setfees">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="studentid" ColumnName="studentid" />
+                <ScalarProperty Name="feeTypeid" ColumnName="feeTypeid" />
+                <ScalarProperty Name="acaYearid" ColumnName="acaYearid" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="students">
+            <EntityTypeMapping TypeName="fmsModel.student">
+              <MappingFragment StoreEntitySet="students">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="htno" ColumnName="htno" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="fname" ColumnName="fname" />
+                <ScalarProperty Name="casteid" ColumnName="casteid" />
+                <ScalarProperty Name="quotaid" ColumnName="quotaid" />
+                <ScalarProperty Name="batchid" ColumnName="batchid" />
+                <ScalarProperty Name="deptid" ColumnName="deptid" />
+                <ScalarProperty Name="semid" ColumnName="semid" />
+                <ScalarProperty Name="feeExemption" ColumnName="feeExemption" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="fmsModel.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="roleid" ColumnName="roleid" />
+                <ScalarProperty Name="username" ColumnName="username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

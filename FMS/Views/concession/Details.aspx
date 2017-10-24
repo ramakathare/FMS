@@ -1,0 +1,45 @@
+﻿<%@ Page Language="C#" Inherits="System.Web.Mvc.ViewPage<FMS.Data.concession>" %>
+<p class="moduleTitle">Concession</p>
+    <fieldset>
+        <legend class="ui-widget-header ui-corner-top">concession Details</legend>
+    
+        <div class="display-label  ui-state-default">student</div>
+        <div class="display-field">
+            <%: Html.DisplayFor(model => model.student.htno) %>
+        </div>
+    
+        <div class="display-label  ui-state-default">feetype</div>
+        <div class="display-field">
+            <%: Html.DisplayFor(model => model.feetype.type) %>
+        </div>
+    
+        <div class="display-label  ui-state-default">acayear</div>
+        <div class="display-field">
+            <%: Html.DisplayFor(model => model.acayear.year) %>
+        </div>
+    
+        <div class="display-label  ui-state-default">amount</div>
+        <div class="display-field">
+            <%: Html.DisplayFor(model => model.amount) %>
+        </div>
+    
+        <div class="display-label  ui-state-default">remarks</div>
+        <div class="display-field">
+            <%: Html.DisplayFor(model => model.remarks) %>
+        </div>
+    
+        <div class="display-label  ui-state-default">time</div>
+        <div class="display-field">
+            <%: Html.DisplayFor(model => model.time) %>
+        </div>
+    <p>
+    	<%: Html.MyActionLink("Edit", "concession", "Edit",new { id=Model.id }, "ajaxLoad", "mainContentPlaceHolder", "class='ui-button' id='concessionEdit'")%>
+    	<%: Html.MyActionLink("Back to List", "concession", "Index", null, "ajaxLoad", "mainContentPlaceHolder", "class='ui-button' id='concessionIndex'")%> 
+                
+    </p>
+    </fieldset>
+    <script type="text/javascript">
+        $(function () {
+            commonFunctions();
+        });
+       </script>
